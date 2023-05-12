@@ -1,0 +1,88 @@
+.sidebar{
+    flex: 1;
+    min-height: 100vh;
+    border-right: 0.5px solid #DCE0D9;
+    background-color: white;
+    .top{
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center ;
+    }
+    .logo{
+        font-size: 20px;
+        font-weight: bold;
+        color: #187795;
+    }
+    .hr{
+        width: 100%;
+        height: 0;
+        border: 0.5px solid #DCE0D9;
+    }
+    .center{
+        padding-left: 10px;
+        ul{
+            list-style: none ;
+            margin: 0;
+            padding: 0 ;
+            .title{
+                font-size: 11px;
+                font-weight: bold;
+                color: #999;
+                margin-top: 15px;
+                margin-bottom: 5px;
+            }
+            li{
+                display: flex;
+                align-items: center;
+                padding: 7px;
+                cursor: pointer;
+                &:hover{
+                    background-color: #b0d2e6;
+                }
+                .icon{
+                    font-size: 19px;
+                    color: #187795;
+                }
+                span{
+                    font-size: 15px;
+                    font-weight: 520;
+                    color: #555555;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+    .bottom{
+        display: inline-block;
+        align-items: center;
+        margin: 10px;
+        padding-left: 10px;
+        margin: 0;
+        .title{
+                font-size: 11px;
+                font-weight: 600;
+                color: #999;
+                margin-top: 15px;
+                margin-bottom: 5px;
+                margin-right: 10px;
+                padding-bottom: 5px;
+            }
+        .colorOption{
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            border: 1px solid #187795;
+            cursor: pointer;
+            margin-right: 5px;
+            display: inline-flex;
+
+            &:nth-child(1){
+                background-color: whitesmoke;
+            }
+            &:nth-child(2){
+                background-color: #333;
+            }
+        }
+    }
+}
