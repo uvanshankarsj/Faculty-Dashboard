@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const {department} = require('../constant');
+const {adminDepartment} = require('../constant');
 
 
 module.exports = (sequelize) => {
@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...department]
+                isIn: [...adminDepartment]
             }
         },
     });

@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes/routes");
 const {fillDummyData} = require("./scripts/fillDummyData");
+const logger = require("logger")
 
 morgan.token("data", (req, res) => {
   return JSON.stringify(req.body);
@@ -19,6 +20,7 @@ app.use(morgan("dev"));
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms :data")
 );
+
 //routes
 app.use(routes);
 

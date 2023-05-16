@@ -1,69 +1,64 @@
 const { DataTypes } = require('sequelize');
-const { department,designation } = require('../constant');
-
+const {department,courseMode,courseStatus,courseType} = require('../constant');
 
 module.exports = (sequelize) => {
-    sequelize.define('faculty', {
-        facultyId: {
+    sequelize.define('course', {
+        courseId: {
             allowNull: false,
             autoIncrement: true,
             primaryKey: true,
             type: DataTypes.INTEGER
         },
-        name: {
+        courseName: {
             allowNull: false,
             type: DataTypes.STRING,
         },
-        email: {
-            allowNull: false,
-            type: DataTypes.STRING,
-            unique: true,
-            validate: {
-                isEmail: true
-            }
-        },
-        password: {
+        courseCode: {
             allowNull: false,
             type: DataTypes.STRING,
         },
-        department: {
+        courseDescription: {
+            allowNull: false,
+            type: DataTypes.STRING,
+        },
+        courseDepartment: {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
                 isIn: [...department]
             }
         },
-        designation: {
+        courseStartDate: {
+            allowNull: false,
+            type: DataTypes.DATE,
+        },
+        courseEndDate: {
+            allowNull: false,
+            type: DataTypes.DATE,
+        },
+        courseCredits: {
+            allowNull: false,
+            type: DataTypes.INTEGER,
+        },
+        courseMode: {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...designation]
+                isIn: [...courseMode]
             }
         },
-        phoneNumber: {
+        courseType: {
             allowNull: false,
             type: DataTypes.STRING,
-            unique: true,
+            validate: {
+                isIn: [...courseType]
+            }
         },
-        papers: {
+        courseStatus: {
             allowNull: false,
-            type: DataTypes.INTEGER,
-            defaultValue: 0
+            type: DataTypes.STRING,
+            validate: {
+                isIn: [...courseStatus]
+            }
         },
-        publications: {
-            allowNull: false,
-            type: DataTypes.INTEGER,
-            defaultValue: 0
-        },
-        citations: {
-            allowNull: false,
-            type: DataTypes.INTEGER,
-            defaultValue: 0
-        },
-        projects: {
-            allowNull: false,
-            type: DataTypes.INTEGER,
-            defaultValue: 0
-        },
-    });
-}
+})}

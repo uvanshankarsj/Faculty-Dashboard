@@ -1,4 +1,3 @@
-
 const {models} = require('../db')
 const jwt = require('jsonwebtoken')
 const {comparePassword} = require('../utils/utils')

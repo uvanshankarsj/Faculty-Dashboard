@@ -8,17 +8,20 @@ const sequelize = new Sequelize(
   {
     host: "localhost",
     dialect: "mysql",
+      pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
   }
 );
 
 const modelDefiners = [
-  require("./models/events.model"),
   require("./models/faculty.model"),
   require("./models/student.model"),
   require("./models/admin.model"),
-  require("./models/user.model"),
-  require("./models/crew.model"),
-  require("./models/starredevents.model"),
+  require("./models/project.model"),
 ];
 
 // We define all models according to their files.

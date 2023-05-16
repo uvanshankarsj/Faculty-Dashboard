@@ -1,38 +1,48 @@
 const router = require('express').Router();
 const {adminAuth} = require('../middleware/middleware')
 const {adminLogin} = require('../controllers/adminControllers')
-const {getAllEvents,createEvent,updateEvent,getEventById,getEventsByDepartment,getEventsByType,deleteEvent,getstarredEvents,groupEventsByDate,groupEventsByDepartment,groupEventsByType,groupEventsbyDay} = require('../controllers/eventControllers')
-const {getAllUsers,createUser,updateUser,getUserById,deleteUser,getuserbyemail,addstarrdeventbyuser,deletestarrdeventbyuser,starredeventsbyuser} = require('../controllers/userControllers') 
-const {getAllCrews,createCrew,updateCrew,getCrewById,deleteCrew,getCrewByDepartment,getCrewByRole,groupCrewByDepartment,groupCrewByRole} = require('../controllers/crewControllers')
+const { getAllStudents,getStudentById,getStudentByEmail,groupStudentByDepartment,createStudent,updateStudent,deleteAllStudents,deleteStudent} = require('../controllers/studentControllers')
+const {getAllFaculties,getFacultyById,createFaculty,updateFaculty,getFacultyByEmail,deleteAllFaculties,deleteFaculty,groupFacultyByDepartment,groupFacultyByDesignation,groupFacultyByDepartmentAndDesignation} = require('../controllers/facultyControllers')
+const {getAllProjects,getProjectById,createProject,updateProject,deleteAllProjects,deleteProject} = require('../controllers/projectControllers')
 
+// Student Routes
+router.get('/api/students',getAllStudents)
+router.get('/api/students/:id',getStudentById)
+router.get('/api/students/email/:email',getStudentByEmail)
+router.get('/api/students/group/department',groupStudentByDepartment)
+router.post('/api/students',adminAuth,createStudent)
+router.put('/api/students/:id',adminAuth,updateStudent)
+router.delete('/api/students/all',adminAuth,deleteAllStudents)
+router.delete('/api/students/:id',adminAuth,deleteStudent)
+
+// Faculty Routes
+router.get('/api/faculties',getAllFaculties)
+router.get('/api/faculties/:id',adminAuth,getFacultyById)
+router.get('/api/faculties/email/:email',getFacultyByEmail)
+router.get('/api/faculties/group/department',groupFacultyByDepartment)
+router.get('/api/faculties/group/designation',groupFacultyByDesignation)
+router.get('/api/faculties/group/department/designation',groupFacultyByDepartmentAndDesignation)
+router.post('/api/faculties',adminAuth,createFaculty)
+router.put('/api/faculties/:id',adminAuth,updateFaculty)
+router.delete('/api/faculties/all',adminAuth,deleteAllFaculties)
+router.delete('/api/faculties/:id',adminAuth,deleteFaculty)
+
+// Project Routes
+router.get('/api/projects',getAllProjects)
+router.get('/api/projects/:id',getProjectById)
+router.post('/api/projects',createProject)
+router.put('/api/projects/:id',updateProject)
+router.delete('/api/projects/all',deleteAllProjects)
+router.delete('/api/projects/:id',deleteProject)
+
+// Admin Routes
 router.get('/api/admin/login',adminLogin)
-router.get('/api/events/all', getAllEvents)
-router.get('/api/events/:id', getEventById)
-router.get('/api/events/department/:department', getEventsByDepartment)
-router.get('/api/events/type/:type', getEventsByType)
-router.get('/api/events/all/starred', getstarredEvents)
-router.get('/api/events/all/groupbydate', groupEventsByDate)
-router.get('/api/events/all/groupbydepartment', groupEventsByDepartment)
-router.get('/api/events/all/groupbytype', groupEventsByType)
-router.get('/api/events/all/groupbyday', groupEventsbyDay)
-router.post('/api/events/create', adminAuth, createEvent)
-router.put('/api/events/update/:id', adminAuth, updateEvent)
-router.delete('/api/events/delete/:id', adminAuth, deleteEvent)
-router.get('/api/crews/all', getAllCrews)
-router.get('/api/crews/:id', getCrewById)
-router.post('/api/crews/create', adminAuth, createCrew)
-router.put('/api/crews/update/:id', adminAuth, updateCrew)
-router.delete('/api/crews/delete/:id', adminAuth, deleteCrew)
-router.get('/api/crews/department/:department', getCrewByDepartment)
-router.get('/api/crews/role/:role', getCrewByRole)
-router.get('/api/crews/all/groupbydepartment', groupCrewByDepartment)
-router.get('/api/crews/all/groupbyrole', groupCrewByRole)
-router.get('/api/users/all', getAllUsers)
-router.get('/api/users/:id', getUserById)
-router.get('/api/users/email/:email', getuserbyemail)
-router.post('/api/users/create', adminAuth, createUser)
-router.put('/api/users/update/:id', adminAuth, updateUser)
-router.delete('/api/users/delete/:id', adminAuth, deleteUser)
-
+router.get('/api/admin/auth',adminAuth,(req,res)=>{
+    res.json({
+        success: true,
+        message: "Admin Authenticated"
+    })
+}
+)
 
 module.exports = router;

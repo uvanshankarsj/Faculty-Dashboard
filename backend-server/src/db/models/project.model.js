@@ -1,49 +1,57 @@
 const { DataTypes } = require('sequelize');
-const {year, department} = require('../constant');
+const {department,projectType,projectStatus} = require('../constant');
 
 module.exports = (sequelize) => {
-    sequelize.define('student', {
-        studentId: {
+    sequelize.define('project', {
+        projectId: {
             allowNull: false,
             autoIncrement: true,
             primaryKey: true,
             type: DataTypes.INTEGER
         },
-        name: {
+        projectTitle: {
             allowNull: false,
             type: DataTypes.STRING,
         },
-        email: {
+        projectDescription: {
             allowNull: false,
             type: DataTypes.STRING,
-            unique: true,
-            validate: {
-                isEmail: true
-            }
         },
-        department: {
+        projectDomain: {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
                 isIn: [...department]
             }
         },
-        year: {
+        projectStartDate: {
+            allowNull: false,
+            type: DataTypes.DATEONLY,
+        },
+        projectEndDate: {
+            allowNull: false,
+            type: DataTypes.DATEONLY,
+        },
+        projectType: {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...year]
+                isIn: [...projectType]
             }
         },
-        rollNumber: {
+        projectStatus: {
             allowNull: false,
             type: DataTypes.STRING,
-            unique: true,
+            validate: {
+                isIn: [...projectStatus]
+            }
         },
-        phoneNumber: {
+        MentorId:{
+            allowNull: false,
+            type: DataTypes.INTEGER,
+        },
+        MentorName:{
             allowNull: false,
             type: DataTypes.STRING,
-            unique: true,
         },
-    });
-}
+})};
