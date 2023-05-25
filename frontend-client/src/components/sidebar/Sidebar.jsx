@@ -50,10 +50,12 @@ return (
                     <ClassIcon className='icon'/>
                     <span>Classes</span>
                 </li>
+                <Link to='/courses' style={{textDecoration:"none"}}>
                 <li>
                     <MenuBookIcon className='icon'/>
                     <span>Courses</span>
                 </li>  
+                </Link>
                 <li>
                     <TodayIcon className='icon'/>
                     <span>Timetbales</span>

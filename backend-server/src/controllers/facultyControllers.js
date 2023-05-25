@@ -174,7 +174,23 @@ const deleteAllFaculties = async (req, res) => {
         console.log(err)
     }
 }
-
+const getFacultyIdbyEmail = async (req,res)=>{
+    try{
+        const email = req.params.email
+        const faculty = await models.faculty.findOne({
+            where:
+            {
+                email:email
+            }
+        })
+        res.json({
+            facultyId:faculty.facultyId
+        })
+    }catch(err){
+        console.log(err)
+    }
+    
+}
 module.exports = {
     getAllFaculties,
     getFacultyById,
@@ -185,5 +201,6 @@ module.exports = {
     createFaculty,
     updateFaculty,
     deleteFaculty,
-    deleteAllFaculties
+    deleteAllFaculties,
+    getFacultyIdbyEmail
 }

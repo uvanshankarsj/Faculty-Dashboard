@@ -212,33 +212,11 @@ const verifyToken = async (req, res) => {
     }
 }
 
-const getFacultyId = async (req,res) => {
-    const {email} = req.body
-    const faculty = await models.faculty.findOne({
-        where: {
-            email: email,
-        }
-    }).then(async (faculty) => {
-        console.log("faculty: ", faculty)
-        if (faculty) {
-            return faculty
-        } else {
-            return null
-        }
-    })
-    if (faculty) {
-        res.status(200).send({facultyId:faculty.facultyId})
-    } else {
-        return null
-    }
-}
-
 module.exports = {
     adminLogin,
     ForgotPassword,
     resetPassword,
     verifyToken,
-    getFacultyId,
     getAdminById,
     getAllAdmins
 }

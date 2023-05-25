@@ -95,6 +95,15 @@ const getEventsByFacultyId = async (req, res) => {
     })
     res.json(events)
 }
+const getEventsByFacultyEmail = async (req, res) => {
+    const facultyEmail = req.params.email
+    const events = await models.events.findAll({
+        where: {
+            email: facultyEmail
+        }
+    })
+    res.json(events)
+}
 
 const getstarredEventsByFacultyId = async (req, res) => {
     const facultyId = req.params.id
@@ -122,6 +131,7 @@ module.exports = {
     createEvent,
     updateEvent,
     getEventsByFacultyId,
-    getstarredEventsByFacultyId
+    getstarredEventsByFacultyId,
+    getEventsByFacultyEmail
 }
 

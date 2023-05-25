@@ -128,7 +128,7 @@ return (
         <div className="forgot-wrapper">
             <div className="forgot-left">
                 <div className="forgot-back">
-                    <Link to='/login' style={{textDecoration:'none'}}>
+                    <Link to='/' style={{textDecoration:'none'}}>
                         <ArrowBackIosSharpIcon className="forgot-back-icon"/>
                         <span className="forgot-back-text">Back</span>
                     </Link>

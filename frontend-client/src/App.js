@@ -10,6 +10,7 @@ import Forgot from './pages/forgotpass/Forgot'
 import Reset from './pages/resetpass/Reset'
 import Calendar from './pages/calendar/Calendar'
 import Paper from './pages/papers/Paper'
+import Courses from './pages/courses/Courses'
 
 const App = () => {
     return (
@@ -24,6 +25,7 @@ const App = () => {
                     <Route path='reset' element={<Reset/>}/>
                     <Route path='calendar' element={<Calendar/>}/>
                     <Route path='papers' element={<Paper/>}/>
+                    <Route path='courses' element={<Courses/>}/>
                     <Route path='faculties'>
                         <Route index element={<List/>}/>
                         <Route path=':facultyId' element={<Single/>}/>

@@ -1,17 +1,17 @@
-import "./datatable.scss";
+import React from 'react'
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
-const Datatable = () => {
+const CourseList = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get("http://localhost:6969/api/faculties");
+                const res = await axios.get("http://localhost:6969/api/courses");
                 setData(res.data);
             } catch (err) {
                 console.log(err);
@@ -21,14 +21,13 @@ const Datatable = () => {
     }, []);
 
     const handleDelete = (id) => {
-        setData(data.filter((item) => item.facultyId !== id));
-        axios.delete(`http://localhost:6969/api/faculties/${id}`
+        setData(data.filter((item) => item.courseId !== id));
+        axios.delete(`http://localhost:6969/api/courses/${id}`
         ,{
             headers: {
                 "Content-Type": "application/json",
-                    
-
-            }, 
+                "Authorization" : `Bearer ${localStorage.getItem("token")}`,
+            },
         }).then((res) => {
             console.log(res);
         }
@@ -36,38 +35,44 @@ const Datatable = () => {
     };
 
     const userColumns = [
-        { field: "facultyId", headerName: "ID", width: 90 },
+        { field: "courseId", headerName: "Course ID", width: 90 },
         {
-            field: "user",
-            headerName: "User",
-            width: 100,
+            field: "courseName",
+            headerName: "Course Name",
+            width: 120,
             renderCell: (params) => {
-                return (
-                    <div className="userCell">
-                        {params.row.name}
-                    </div>
-                );
+                return <div className="userCell">{params.row.courseName}</div>;
             },
         },
         {
-            field: "email",
-            headerName: "Email",
-            width: 150,
+            field: "courseCode",
+            headerName: "Course Code",
+            width: 100,
         },
         {
-            field: "department",
-            headerName: "Status",
+            field: "courseDepartment",
+            headerName: "Department",
             width: 120,
         },
         {
-            field: "designation",
-            headerName: "Transaction Volume",
-            width: 160,
+            field: "courseType",
+            headerName: "Type",
+            width: 120,
         },
         {
-            field: "phoneNumber",
-            headerName: "Phone Number",
-            width: 150,
+            field: "courseCredits",
+            headerName: "Credits",
+            width: 120,
+        },
+        {
+            field: "courseMode",
+            headerName: "Mode",
+            width: 120,
+        },
+        {
+            field: "courseStatus",
+            headerName: "Status",
+            width: 120,
         },
     ];
 
@@ -84,8 +89,7 @@ const Datatable = () => {
                         </Link>
                         <div
                             className="deleteButton"
-                            onClick={() => handleDelete(params.row.facultyId)}
-                        >
+                            onClick={() => handleDelete(params.row.courseId)}>
                             Delete
                         </div>
                     </div>
@@ -93,11 +97,12 @@ const Datatable = () => {
             },
         },
     ];
-    return (
+            
+return (
         <div className="datatable">
             <div className="datatableTitle">
-                Add New User
-                <Link to="/users/new" className="link">
+                Add New Course
+                <Link to="/courses/new" className="link">
                     Add New
                 </Link>
             </div>
@@ -108,10 +113,10 @@ const Datatable = () => {
                 pageSize={9}
                 rowsPerPageOptions={[9]}
                 checkboxSelection
-                getRowId={(row) => row.facultyId}
+                getRowId={(row) => row.courseId}
             />
         </div>
-    );
-};
+);
+}
 
-export default Datatable;
+export default CourseList

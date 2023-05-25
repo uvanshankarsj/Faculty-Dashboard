@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "./calendar.scss";
@@ -15,31 +15,50 @@ export default function ReactBigCalendar() {
     const defaultDate = useMemo(() => new Date(), []);
     const [eventsData, setEventsData] = useState([])
     const [fac, setFac] = useState()
-    const user = JSON.parse(localStorage.getItem("user"))
-    const handleSelect = async ({ start, end , date }) => {
+    const emailId = localStorage.getItem("email")
+    useEffect(() => {
+        (async () => {
+            await axios.get(`http://localhost:6969/api/faculties/id/email/${emailId}`)
+                .then((res) => {
+                    console.log("funny", res.data["facultyId"]);
+                    setFac(res.data["facultyId"]);
+                });
+        })();
+        // console.log(fac);
+        axios.get(`http://localhost:6969/api/events/faculty/${fac}`).then((res) => {
+            console.log(res.data)
+            setEventsData(res.data)
+        }
+        )
+    }, [])
+
+    // const user = JSON.parse(localStorage.getItem("user"))
+    const handleSelect = async ({ start, end , date }) =>{
         const title = window.prompt("New Event name");
         console.log(start,end,date)
-        axios.get("http://localhost:6969/api/admin/faculty", {
-                email:user.email ,
-            }).then((res) => {
-                setFac(res.data.facultyId)
-            })
+        const fdate = moment(start).format("YYYY-MM-DD")
+        const startDate = moment(start).format("YYYY-MM-DD")
+        const endDate = moment(end).format("YYYY-MM-DD")
+        const startTime = moment(start).format("HH:mm:ss")
+        const endTime = moment(end).format("HH:mm:ss")
+        console.log(startDate,endDate,startTime,endTime)
         if (title) {
-            const newEvent = {
-                start : start,
-                end : end,
-                date : date,
-                name : title,
-                facultyId : fac,
-                isStarred : false
+            setEventsData([...eventsData, { start, end, title }]);
+            const event = {
+                name: title,
+                startDate: startDate,
+                endDate: endDate,
+                facultyId: fac,
+                startTime: startTime,
+                endTime: endTime,
+                date: fdate
             }
-            axios.post("http://localhost:6969/api/admin/event",newEvent).then((res) => {
-                console.log(res.data)
-            }
-            )
-            
+            console.log(event)
+            axios.post(`http://localhost:6969/api/events`, event).then((res) => {
+                console.log(res)
+            })
         }
-        }
+    }
     return (
         <div className="calendar">
             <Sidebar />
