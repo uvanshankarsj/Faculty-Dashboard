@@ -1,4 +1,4 @@
-.forgot{
+.reset{
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -7,7 +7,7 @@
     background: rgb(0,0,0);
     background: linear-gradient(129deg, rgba(0,0,0,1) 61%, rgba(255,255,255,1) 100%);
     font-family: 'Nunito', sans-serif;
-    .forgot-wrapper{
+    .reset-wrapper{
         height: 80%;
         width: 80%;
         display: flex;
@@ -15,13 +15,13 @@
         align-items: center;
         background: #edecec;
         border-radius: 2px;
-        .forgot-left{
+        .reset-left{
             height: 100%;
             width: 50%;
             display: block;
             justify-content: center;
             align-items: center;
-            .forgot-back{
+            .reset-back{
                 padding-left: 80px;
                 font-size: 1rem;
                 display:inline-flex;
@@ -35,25 +35,25 @@
                 :visited{
                     color: silver;
                 }
-                .forgot-back-text{
+                .reset-back-text{
                     margin-left: 5px;
                     align-items: center;
                     justify-content: center;
                 }
-                .forgot-back-icon{
+                .reset-back-icon{
                     height: 15px;
                     width: 15px;
                     color: silver;
                 }
             }
-            .forgot-desc{
+            .reset-desc{
                 padding-left: 80px;
                 font-size: 1.3rem;
                 font-weight: 700;
                 color: #000;
                 font-family: 'Nunito', sans-serif;
             }
-            .forgot-des{
+            .reset-des{
                 padding-left: 80px;
                 margin-top: 5px;
                 font-size: 0.7rem;
@@ -63,7 +63,7 @@
                 font-family: 'Nunito', sans-serif;
                 margin-bottom: 20px;
             }
-            .forgot-form-group{
+            .reset-form-group{
                 margin-top: 50px;
                 label{
                     display: flex;
@@ -74,11 +74,12 @@
                     color: silver;
                     font-family: 'Nunito', sans-serif;
                 }
-                .forgot-input{
+                .reset-input{
                     width: 400px;
                         height: 40px;
                         margin-top: 10px;
                         margin-left: 80px;
+                        margin-bottom: 20px;
                         border-radius: 4px;
                         background-color: #edecec;
                         border: 0.4px solid silver;
@@ -100,7 +101,7 @@
             
             }
         }
-        .forgot-right{
+        .reset-right{
             display: flex;
             flex-direction: column;
             width: 50%;

@@ -1,9 +1,15 @@
 import React from 'react'
 import './chart.scss'
-const Chart = () => {
+
+const Chart = ({ aspect, title }) => {
+    
 return (
-    <div>Chart</div>
-)
+    <div className="chart">
+    </div>
+);
 }
 
 export default Chart
+
+
+

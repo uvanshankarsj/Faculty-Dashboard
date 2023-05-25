@@ -1,5 +1,6 @@
 const { Sequelize } = require("sequelize");
 const { applyExtraSetup } = require("./extra-setup");
+require("dotenv").config();
 
 const sequelize = new Sequelize(
   "facdash",
@@ -22,6 +23,8 @@ const modelDefiners = [
   require("./models/student.model"),
   require("./models/admin.model"),
   require("./models/project.model"),
+  require("./models/events.model"),
+  require("./models/starredevents.model"),
 ];
 
 // We define all models according to their files.

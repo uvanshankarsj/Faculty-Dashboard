@@ -9,14 +9,12 @@ async function fillDummyData() {
   const studentData = [];
   const adminData = [];
   const projectData = [];
+  const starredeventsData = [];
+  const eventsData = [];
 
-  for (let i = 0; i < n_iters; i++) {
-    // const startDate = new Date();
-    // const endDate = new Date();
-    // const newStartDate = startDate.toDateString();
-    // const newEndDate = endDate.toDateString();
+  for (let i = 1; i < n_iters+1; i++) {
     facultyData.push({
-      facultyId: Math.floor(Math.random() * 1000000000),
+      facultyId: i,
       name: `faculty${i}`,
       email: `fac${i}@cb.amrita.edu`,
       password: await hashPassword(`password${i}`),
@@ -40,7 +38,7 @@ async function fillDummyData() {
     adminData.push({
       adminId: Math.floor(Math.random() * 1000000000),
       name: `admin${i}`,
-      email: `admin${i}@admin.com`,
+      email: `admin${i}@cb.amrita.edu`,
       password: await hashPassword(`password${i}`),
       department: adminDepartment[Math.floor(Math.random() * adminDepartment.length)],
     });
@@ -52,8 +50,20 @@ async function fillDummyData() {
       projectEndDate: new Date().toISOString().split("T")[0],
       projectType: projectType[Math.floor(Math.random() * projectType.length)],
       projectStatus: projectStatus[Math.floor(Math.random() * projectStatus.length)],
-      MentorId: Math.floor(Math.random() * 1000000000),
+      MentorId: Math.floor(Math.random() * 10)+1,
       MentorName: `faculty${i}`,
+    });
+    eventsData.push({
+      name: `event${i}`,
+      date: new Date(),
+      facultyId: Math.floor(Math.random() * n_iters) + 1,
+      startTime: new Date(),
+      endTime: new Date(),
+    });
+    starredeventsData.push({
+      eventId: Math.floor(Math.random() * n_iters) + 1,
+      facultyId: Math.floor(Math.random() * n_iters) + 1,
+      eventName : `event${i}`,
     });
 
   }
@@ -63,6 +73,8 @@ async function fillDummyData() {
     await models.student.bulkCreate(studentData);
     await models.admin.bulkCreate(adminData);
     await models.project.bulkCreate(projectData);
+    await models.events.bulkCreate(eventsData);
+    await models.starredevents.bulkCreate(starredeventsData);
   } catch (err) {
     console.log(err);
   }

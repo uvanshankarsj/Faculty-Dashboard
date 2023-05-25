@@ -6,17 +6,27 @@ import List from './pages/list/List'
 import Single from './pages/single /Single'
 import New from './pages/new/New'
 import './App.scss'
+import Forgot from './pages/forgotpass/Forgot'
+import Reset from './pages/resetpass/Reset'
+import Calendar from './pages/calendar/Calendar'
+import Paper from './pages/papers/Paper'
+
 const App = () => {
     return (
-    <div className='App'> 
+    <div className='app'> 
         <BrowserRouter>
             <Routes>
                 <Route path='/'>
-                    <Route index element={<Home/>}/>
-                    <Route path='login' element={<Login/>}/>
-                    <Route path='users'>
+                    <Route path='/' element={<Login/>}/>
+                    <Route index element={<Login/>}/>
+                    <Route path='home' element={<Home/>}/>
+                    <Route path='forgot' element={<Forgot/>}/>
+                    <Route path='reset' element={<Reset/>}/>
+                    <Route path='calendar' element={<Calendar/>}/>
+                    <Route path='papers' element={<Paper/>}/>
+                    <Route path='faculties'>
                         <Route index element={<List/>}/>
-                        <Route path=':UserId' element={<Single/>}/>
+                        <Route path=':facultyId' element={<Single/>}/>
                         <Route path='new' element={<New/>}/> 
                     </Route> 
                     <Route path='faculty'>

@@ -15,6 +15,7 @@ morgan.token("data", (req, res) => {
 
 //middlewares
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(morgan("dev"));
 app.use(
@@ -59,8 +60,8 @@ app.use(errorHandler);
 
 async function init() {
 	await assertDatabaseConnectionOk();
-  await sequelize.sync({ force: true});
-  await fillDummyData();
+  // await sequelize.sync({ force: true});
+  // await fillDummyData();
 	console.log(`Starting Sequelize`);
 	app.listen(PORT, () => {
 		console.log(`Express server started on port ${PORT}.`);

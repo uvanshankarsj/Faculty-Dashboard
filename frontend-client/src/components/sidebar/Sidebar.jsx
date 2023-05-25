@@ -12,7 +12,12 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 import GroupIcon from '@mui/icons-material/Group';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SettingsIcon from '@mui/icons-material/Settings';
+import { Link } from 'react-router-dom';
 const Sidebar = () => {
+    const HandleLogout = () => {
+        localStorage.clear()
+        window.location.href = '/'
+    }
 return (
     <div className="sidebar">
         <div className="top">
@@ -26,17 +31,21 @@ return (
                 <p className="title">
                     MAIN
                 </p>
+                <Link to='/home' style={{textDecoration:"none"}}>
                 <li>
                     <DashboardIcon className='icon'/>
                     <span>Dashboard</span>
                 </li>
+                </Link>
                 <p className="title">
                     DATA
                 </p>
+                <Link to='/faculties' style={{textDecoration:"none"}}>
                 <li>
                     <GroupIcon className='icon'/>
                     <span>Faculty</span>
                 </li>
+                </Link>
                 <li>
                     <ClassIcon className='icon'/>
                     <span>Classes</span>
@@ -52,10 +61,12 @@ return (
                 <p className="title">
                     TOOLS
                 </p>
+                <Link to='/calendar' style={{textDecoration:"none"}}>
                 <li>
                     <EventNoteIcon className='icon'/>
                     <span>Work Log</span>
                 </li> 
+                </Link>
                 <li>
                     <AppRegistrationIcon className='icon'/>
                     <span>Course Registrataion</span>
@@ -64,10 +75,12 @@ return (
                     <AnalyticsIcon className='icon'/>
                     <span>Statistics</span>
                 </li> 
+                <Link to='/papers' style={{textDecoration:"none"}}>
                 <li>
                     <SummarizeIcon className='icon'/>
                     <span>Papers and Reports</span>
                 </li> 
+                </Link>
                 <p className="title">
                     ACCOUNT
                 </p>
@@ -79,10 +92,12 @@ return (
                     <SettingsIcon className='icon'/>
                     <span>Settings</span>
                 </li>
+                <Link onClick={HandleLogout} style={{textDecoration:"none"}}>
                 <li>
                     <LogoutIcon className='icon'/>
                     <span>Logout</span>
                 </li> 
+                </Link>
             </ul>
         </div>
         <div className="bottom"> 

@@ -132,6 +132,26 @@ const deleteAllProjects = async (req, res) => {
 }
 }
 
+const getProjectByMentorId = async (req, res) => {
+    try{
+        const mentorId = req.params.id
+    const projects = await models.project.findAll({
+        where: {
+            MentorId: mentorId
+        }
+    })
+    res.json(
+        {
+            mentorId: mentorId,
+            projects: projects
+        }
+    )
+}catch(err){
+    console.log(err)
+}
+}
+
+
 
 module.exports = {
     getAllProjects,
@@ -141,5 +161,6 @@ module.exports = {
     createProject,
     updateProject,
     deleteProject,
-    deleteAllProjects
+    deleteAllProjects,
+    getProjectByMentorId
 }
