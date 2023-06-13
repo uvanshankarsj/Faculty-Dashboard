@@ -1,0 +1,57 @@
+.paper {
+    display: flex;
+    width: 100%;
+    .paperContainer {
+        flex: 6;
+        .paperWrapper{
+            margin: 20px;
+            padding: 20px;
+            .title{
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+            .form-group{
+                display: flex;
+                flex-direction: column;
+                .upload-input{
+                    margin-bottom: 1rem;
+                    size: 30px;
+                }
+                .upload-button{
+                    margin-bottom: 1rem;
+                }
+                .upload-button:hover{
+                    background-color: #f5f5f5;
+                }
+                .upload-button:active{
+                    background-color: #e6e6e6;
+                }
+                .single{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                }
+                .multiple{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                }
+            }
+        }
+        .paperlist{
+            margin: 20px;
+            padding: 20px;
+            .title{
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+            .paperlistWrapper{
+                display: flex;
+                flex-direction: column;
+                }
+        }
+    } 
+
+}

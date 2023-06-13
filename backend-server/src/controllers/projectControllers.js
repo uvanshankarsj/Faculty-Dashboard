@@ -20,18 +20,17 @@ const getProjectById = async (req, res) => {
 }
 
 const getProjectByTitle = async (req, res) => {
-    
-        try{
-            const title = req.params.title
-        const project = await models.project.findOne({
-            where: {
-                title: title
-            }
-        })
-        res.json(project)
-    }catch(err){
-        console.log(err)
-    }
+    try{
+        const projectTitle = req.params.title
+    const project = await models.project.findOne({
+        where: {
+            projectTitle: projectTitle
+        }
+    })
+    res.json(project)
+}catch(err){
+    console.log(err)
+}
 }
 
 const groupProjectByDepartment = async (req, res) => {

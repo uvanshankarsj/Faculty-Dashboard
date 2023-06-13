@@ -1,5 +1,6 @@
 require("dotenv").config();
 const app = require("express")();
+app.disable("x-powered-by");
 const sequelize = require("./db");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -16,7 +17,11 @@ morgan.token("data", (req, res) => {
 //middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+let corsOptions = {
+  origin: "http://localhost:3000",
+};
+
+app.use(cors(corsOptions));
 app.use(morgan("dev"));
 app.use(
   morgan(":method :url :status :res[content-length] - :response-time ms :data")

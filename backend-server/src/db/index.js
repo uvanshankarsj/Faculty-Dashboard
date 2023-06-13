@@ -1,5 +1,4 @@
 const { Sequelize } = require("sequelize");
-const { applyExtraSetup } = require("./extra-setup");
 require("dotenv").config();
 
 const sequelize = new Sequelize(
@@ -33,6 +32,4 @@ for (const modelDefiner of modelDefiners) {
   modelDefiner(sequelize);
 }
 
-// We execute any extra setup after the models are defined, such as adding associations.
-applyExtraSetup(sequelize);
 module.exports = sequelize;

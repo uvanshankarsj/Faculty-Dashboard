@@ -1,4 +1,6 @@
 const {models} = require('../db')
+const bcrypt = require("bcrypt");
+
 
 const getAllFaculties = async (req, res) => {
     const faculties = await models.faculty.findAll()
@@ -109,7 +111,7 @@ const createFaculty = async (req, res) => {
         const faculty = await models.faculty.create({
         name: name,
         email: email,
-        password: password,
+        password: await bcrypt.hash(password, 10),
         department: department,
         designation: designation,
         phoneNumber: phoneNumber,

@@ -1,7 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { department,designation } = require('../constant');
 
-
 module.exports = (sequelize) => {
     sequelize.define('faculty', {
         facultyId: {
@@ -30,14 +29,14 @@ module.exports = (sequelize) => {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...department]
+                isIn: [[...department]]
             }
         },
         designation: {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...designation]
+                isIn: [[...designation]]
             }
         },
         phoneNumber: {

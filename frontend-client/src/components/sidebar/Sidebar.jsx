@@ -56,10 +56,12 @@ return (
                     <span>Courses</span>
                 </li>  
                 </Link>
+                <Link to='/timetable' style={{textDecoration:"none"}}>
                 <li>
                     <TodayIcon className='icon'/>
                     <span>Timetbales</span>
                 </li> 
+                </Link>
                 <p className="title">
                     TOOLS
                 </p>
@@ -69,10 +71,12 @@ return (
                     <span>Work Log</span>
                 </li> 
                 </Link>
+                <Link to='/registration' style={{textDecoration:"none"}}>
                 <li>
                     <AppRegistrationIcon className='icon'/>
                     <span>Course Registrataion</span>
                 </li> 
+                </Link>
                 <li>
                     <AnalyticsIcon className='icon'/>
                     <span>Statistics</span>
@@ -86,10 +90,12 @@ return (
                 <p className="title">
                     ACCOUNT
                 </p>
+                <Link to='/profile' style={{textDecoration:"none"}}>
                 <li>
                     <PersonIcon className='icon'/>
                     <span>Profile</span>
                 </li> 
+                </Link>
                 <li>
                     <SettingsIcon className='icon'/>
                     <span>Settings</span>

@@ -21,7 +21,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...department]
+                isIn: [[...department]]
             }
         },
         projectStartDate: {
@@ -36,14 +36,14 @@ module.exports = (sequelize) => {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...projectType]
+                isIn: [[...projectType]]
             }
         },
         projectStatus: {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...projectStatus]
+                isIn: [[...projectStatus]]
             }
         },
         MentorId:{

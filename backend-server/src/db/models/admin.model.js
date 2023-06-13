@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...adminDepartment]
+                isIn: [[...adminDepartment]]
             }
         },
     });

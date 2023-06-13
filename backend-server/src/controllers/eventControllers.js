@@ -40,7 +40,7 @@ const deleteEvent = async (req, res) => {
             eventId: eventId
         }
     })
-    res.message("Event deleted")
+    res.json(event)
 } catch(err){
     console.log(err)
 }
@@ -97,12 +97,23 @@ const getEventsByFacultyId = async (req, res) => {
 }
 const getEventsByFacultyEmail = async (req, res) => {
     const facultyEmail = req.params.email
-    const events = await models.events.findAll({
+    const faculty = await models.faculty.findOne({
         where: {
             email: facultyEmail
         }
     })
-    res.json(events)
+    const facultyId = faculty.facultyId
+    const events = await models.events.findAll({
+        where: {
+            facultyId: facultyId
+        }
+    })
+    res.json(
+        {
+            events : events,
+            facultyId : facultyId
+        }
+    )
 }
 
 const getstarredEventsByFacultyId = async (req, res) => {

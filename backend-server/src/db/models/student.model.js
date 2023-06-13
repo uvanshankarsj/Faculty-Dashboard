@@ -25,14 +25,14 @@ module.exports = (sequelize) => {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...department]
+                isIn: [[...department]]
             }
         },
         year: {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...year]
+                isIn: [[...year]]
             }
         },
         rollNumber: {

@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...department]
+                isIn: [[...department]]
             }
         },
         courseStartDate: {
@@ -44,21 +44,21 @@ module.exports = (sequelize) => {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...courseMode]
+                isIn: [[...courseMode]]
             }
         },
         courseType: {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...courseType]
+                isIn: [[...courseType]]
             }
         },
         courseStatus: {
             allowNull: false,
             type: DataTypes.STRING,
             validate: {
-                isIn: [...courseStatus]
+                isIn: [[...courseStatus]]
             }
         },
 })}

@@ -1,16 +1,14 @@
-import React from 'react'
 import './login.scss' 
 import Background from '../../assets/images/backgroundesign.jpg'
 import Dashboard from '../../assets/images/dashboard.webp'
 import { Link, useNavigate , useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { React,useState } from 'react'
 import axios from 'axios'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [user, setUser] = useState()
     const check = document.querySelector('#checkbox')
     const move = useNavigate()
     const location = useLocation()
@@ -27,7 +25,6 @@ const login = (email, password) => {
     console.log(email, password)
     axios.post('http://localhost:6969/api/admin/login', {email:email, password:password}).then((res) => {
         if(res.data.message === 'Valid'){
-            setUser(res.data.user)
             setError('')
             window.localStorage.setItem("token", res.data.token);
             window.localStorage.setItem("user", JSON.stringify(res.data.user));
@@ -116,10 +113,10 @@ return (
                     <span className="terms"> terms & conditions</span>
                 </div>
                 <input classame='submit' type="button" value="Sign In" onClick={handleSubmit}/>
-                <div className="signupacc">
+                {/* <div className="signupacc">
                     <span className="text"> Don't have an account ? </span>
                     <span className="create">Create Account</span>
-                </div>
+                </div> */}
             </div>
             <div className="login-right">
                 <img src={Background} alt="" className="login-img" />

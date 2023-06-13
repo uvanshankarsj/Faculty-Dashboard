@@ -8,7 +8,7 @@ import { Home } from "@mui/icons-material";
 const Widget = ({ type }) => {
     let data ;
 
-    const amount = 100;
+    const amount = 10;
     const diff = 20;
 
     switch (type) {

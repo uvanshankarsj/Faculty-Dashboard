@@ -6,7 +6,7 @@ const {getAllFaculties,getFacultyById,createFaculty,updateFaculty,getFacultyByEm
 const {getAllProjects,getProjectById,createProject,updateProject,deleteAllProjects,deleteProject,getProjectByMentorId,getProjectByTitle} = require('../controllers/projectControllers');
 const { sendEmail } = require('../controllers/emailControllers');
 const { getAllEvents, getEventById, createEvent, updateEvent, deleteEvent,getEventsByFacultyId,getstarredEventsByFacultyId,getEventsByFacultyEmail} = require('../controllers/eventControllers');
-const {uploadpaper,uploadMultiplepapers,deleteFile,getFile,getAllFiles}= require('../controllers/fileControllers');
+const {uploadpaper,uploadMultiplepapers,deleteFile,getFile,getAllFiles,uploadMultipletimetables,uploadtimetable,getAllTimetables,getTimetable,deleteTimetable}= require('../controllers/fileControllers');
 const { getAllCourses, getCourseById, createCourse,updateCourse,deleteCourse,getCourseByDepartment,getCourseByMode,getCourseByType,getCourseByStatus} = require('../controllers/courseControllers');
 // Student Routes
 
@@ -80,6 +80,13 @@ router.post('/api/admin/reset-password',resetPassword)
 router.post('/api/admin/verify-token',verifyToken)
 router.get('/api/admin/:id',getAdminById)
 router.get('/api/admins',getAllAdmins)
+
+// Timetable Routes
+router.post('/api/upload/timetable',uploadtimetable)
+router.post('/api/upload/multiple/timetable',uploadMultipletimetables)
+router.delete('/api/delete/timetable/:filename',deleteTimetable)
+router.get('/api/download/timetable/:filename',getTimetable)
+router.get('/api/timetables',getAllTimetables)
 router.post('/api/upload',uploadpaper)
 router.post('/api/upload/multiple',uploadMultiplepapers)
 router.delete('/api/delete/:filename',deleteFile)

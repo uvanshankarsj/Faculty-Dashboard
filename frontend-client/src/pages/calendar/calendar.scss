@@ -2,5 +2,8 @@
     display: flex;
     width: 100%;
     .calendar-wrapper {
+        .rbc-calendar{
+            min-height: 500px;
+        }
         flex: 6;} 
 }

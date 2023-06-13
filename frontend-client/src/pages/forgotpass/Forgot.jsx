@@ -1,6 +1,5 @@
-import React from 'react'
 import './forgot.scss'
-import { useState } from 'react'
+import { React,useState } from 'react'
 import ArrowBackIosSharpIcon from "@mui/icons-material/ArrowBackIosSharp";
 import { Link, useNavigate } from 'react-router-dom'
 import Forget from '../../assets/images/forgot.jpg'
@@ -107,19 +106,7 @@ const Forgot = () => {
                 progress: undefined,
                 theme: "light",
             });
-        } else if(!email.includes('@')){
-            toast.error("Enter a valid email address", {
-                position: "top-right",
-                autoClose: 4000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
-        }
-        else{
+        } else{
             mailverification(email)
         }
     }
@@ -141,7 +128,7 @@ return (
                     <div className="forgot-form-group">
                         <label>Email Address</label>
                         <input type="email" id='forgot-email' className="forgot-input" onChange={(e) => {setEmail(e.target.value)}}/>
-                        <input classname='submit' type="button" value="Validate Email" onClick={handleSubmit}/>
+                        <input className='submit' type="button" value="Validate Email" onClick={handleSubmit}/>
                         {otpdisplay ? otpDisplay() : null}
                     </div>
             </div>

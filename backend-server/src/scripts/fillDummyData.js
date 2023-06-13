@@ -4,7 +4,6 @@ async function fillDummyData() {
   const { models } = require("../db");
   const { department,designation,adminDepartment,projectType,projectStatus,courseMode,courseStatus,courseType} = require("../db/constant");
   const { hashPassword } = require("../utils/utils");
-
   const facultyData = [];
   const studentData = [];
   const adminData = [];

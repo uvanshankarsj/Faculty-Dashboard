@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "./calendar.scss";
-import { useMemo } from "react";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -10,48 +9,35 @@ import axios from "axios";
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
-
 export default function ReactBigCalendar() {
-    const defaultDate = useMemo(() => new Date(), []);
+    const defaultDate = moment(new Date()).format("YYYY-MM-DD");
     const [eventsData, setEventsData] = useState([])
     const [fac, setFac] = useState()
     const emailId = localStorage.getItem("email")
     useEffect(() => {
-        (async () => {
-            await axios.get(`http://localhost:6969/api/faculties/id/email/${emailId}`)
-                .then((res) => {
-                    console.log("funny", res.data["facultyId"]);
-                    setFac(res.data["facultyId"]);
-                });
-        })();
-        // console.log(fac);
-        axios.get(`http://localhost:6969/api/events/faculty/${fac}`).then((res) => {
+        axios.get(`http://localhost:6969/api/events/faculty/email/${emailId}`).then((res) => {
             console.log(res.data)
-            setEventsData(res.data)
-        }
-        )
+            setEventsData(res.data.events)
+            setFac(res.data.facultyId)
+        })
     }, [])
-
-    // const user = JSON.parse(localStorage.getItem("user"))
     const handleSelect = async ({ start, end , date }) =>{
         const title = window.prompt("New Event name");
         console.log(start,end,date)
-        const fdate = moment(start).format("YYYY-MM-DD")
+        const fdate = moment(date).format("YYYY-MM-DD")
         const startDate = moment(start).format("YYYY-MM-DD")
         const endDate = moment(end).format("YYYY-MM-DD")
         const startTime = moment(start).format("HH:mm:ss")
         const endTime = moment(end).format("HH:mm:ss")
-        console.log(startDate,endDate,startTime,endTime)
+        console.log(fdate,startDate,endDate,startTime,endTime)
         if (title) {
             setEventsData([...eventsData, { start, end, title }]);
             const event = {
                 name: title,
-                startDate: startDate,
-                endDate: endDate,
+                date : date,
                 facultyId: fac,
                 startTime: startTime,
                 endTime: endTime,
-                date: fdate
             }
             console.log(event)
             axios.post(`http://localhost:6969/api/events`, event).then((res) => {
@@ -65,14 +51,15 @@ export default function ReactBigCalendar() {
             <div className="calendar-wrapper">
                 <Navbar/>
                 <Calendar
-                    views={["day", "agenda", "work_week", "month"]}
+                    views={[ "agenda","month"]}
                     selectable
                     localizer={localizer}
                     defaultDate={defaultDate}
                     defaultView="month"
                     events={eventsData}
-                    startAccessor="start"
-                    endAccessor="end"
+                    startAccessor= 'date'
+                    endAccessor='date'
+                    titleAccessor='name'
                     style={{ height: "100vh", width: "80vw", marginLeft: "30px" }}
                     onSelectEvent={(deleteEvent) => {
                         const confirm = window.confirm(
@@ -80,6 +67,12 @@ export default function ReactBigCalendar() {
                         );
                         if (confirm) {
                             setEventsData(eventsData.filter((event) => event !== deleteEvent));
+                            console.log(deleteEvent.eventId)
+                            const id = deleteEvent.eventId;
+                            axios.delete(`http://localhost:6969/api/events/${id}`).then((res) => {
+                                console.log(res)
+                            }
+                            )
                         }
                     }}
                     onDoubleClickEvent={(event) => {

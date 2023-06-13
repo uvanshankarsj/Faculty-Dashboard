@@ -1,8 +1,7 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Datatable = () => {
@@ -26,8 +25,7 @@ const Datatable = () => {
         ,{
             headers: {
                 "Content-Type": "application/json",
-                    
-
+                "Authorization" : `Bearer ${localStorage.getItem("token")}`,
             }, 
         }).then((res) => {
             console.log(res);
