@@ -100,7 +100,7 @@ return (
         <div className="datatable">
             <div className="datatableTitle">
                 Add New Course
-                <Link to="/courses/new" className="link">
+                <Link to="/add" className="link">
                     Add New
                 </Link>
             </div>

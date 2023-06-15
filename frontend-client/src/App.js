@@ -14,6 +14,7 @@ import Courses from './pages/courses/Courses'
 import Timetable from './pages/timetable/Timetable'
 import Registration from './pages/registration/Registration'
 import Profile from './pages/profile/Profile'
+import CourseNew from './pages/coursenew/CourseNew'
 
 const App = () => {
     return (
@@ -29,17 +30,13 @@ const App = () => {
                     <Route path='calendar' element={<Calendar/>}/>
                     <Route path='papers' element={<Paper/>}/>
                     <Route path='courses' element={<Courses/>}/>
+                    <Route path='add' element={<CourseNew/>}/>
                     <Route path='timetable' element={<Timetable/>}/>
                     <Route path='registration' element={<Registration/>}/>
                     <Route path='profile' element={<Profile/>}/>
                     <Route path='faculties'>
                         <Route index element={<List/>}/>
                         <Route path=':facultyId' element={<Single/>}/>
-                        <Route path='new' element={<New/>}/> 
-                    </Route> 
-                    <Route path='faculty'>
-                        <Route index element={<List/>}/>
-                        <Route path=':FacultyId' element={<Single/>}/>
                         <Route path='new' element={<New/>}/> 
                     </Route> 
                 </Route>

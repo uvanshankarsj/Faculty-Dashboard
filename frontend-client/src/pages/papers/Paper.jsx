@@ -70,6 +70,26 @@ const Paper = () => {
             });
     };
 
+        const handleDownload = (fileURL, fileName) => {
+    const link = document.createElement("a");
+    link.href = fileURL;
+    link.download = fileName;
+    link.click();
+    toast.success('File Downloaded Successfully');
+    };
+
+    const handleDelete = (fileURL, fileName) => {
+        axios.delete(`http://localhost:6969/api/delete/${fileName}`).then((res) => {
+            console.log(res);
+            toast.success("File deleted successfully");
+        })
+            .catch((err) => {
+                console.log(err);
+                toast.error("Something went wrong");
+            });
+            window.location.reload();
+    };
+
 return (
     <div className="paper">
         <Sidebar/>
@@ -99,14 +119,18 @@ return (
             </div>
             <div className="paperlist">
                 <div className="title">Paper List</div>
-                        <div>
-                            {paperList.map((file) => (
-                            <div key={file.name}>
+                    <div className="list">
+                        {paperList.map((file) => (
+                            <div key={file.name} className="file">
                                 <h4>{file.name}</h4>
-                                <p>URL: {file.url}</p>
-                                <p>Type: {file.type}</p>
-                            </div>))}
-                        </div>
+                                <div className="action">
+                                    <button onClick={() => handleDownload(file.url, file.name)}> Download </button>
+                                    &nbsp;
+                                    <button onClick={()=> handleDelete(file.url,file.name)}> Delete </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
             </div>
         </div>
     <ToastContainer />

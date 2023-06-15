@@ -45,7 +45,7 @@ router.get('/api/events/faculty/email/:email',getEventsByFacultyEmail)
 //  Course Routes
 router.get('/api/courses',getAllCourses)
 router.get('/api/courses/:id',getCourseById)
-router.post('/api/courses',createCourse)
+router.post('/api/courses',adminAuth,createCourse)
 router.put('/api/courses/:id',updateCourse)
 router.delete('/api/courses/:id',deleteCourse)
 router.get('/api/courses/department/:department',getCourseByDepartment)

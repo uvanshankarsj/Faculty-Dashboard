@@ -2,7 +2,7 @@ import './login.scss'
 import Background from '../../assets/images/backgroundesign.jpg'
 import Dashboard from '../../assets/images/dashboard.webp'
 import { Link, useNavigate , useLocation } from 'react-router-dom'
-import { React,useState } from 'react'
+import { React,useState,useEffect } from 'react'
 import axios from 'axios'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,7 +14,7 @@ const Login = () => {
     const location = useLocation()
     const [error, setError] = useState('')
 
-    React.useEffect(() => {
+    useEffect(() => {
         document.title = "Login"
         if(location.state){
             toast.success(location.state.message)
