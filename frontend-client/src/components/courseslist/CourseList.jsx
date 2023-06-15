@@ -1,7 +1,8 @@
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid,GridToolbar } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { React,useState, useEffect } from "react";
 import axios from "axios";
+import "./courselist.scss";
 
 const CourseList = () => {
     const [data, setData] = useState([]);
@@ -112,6 +113,7 @@ return (
                 rowsPerPageOptions={[9]}
                 checkboxSelection
                 getRowId={(row) => row.courseId}
+                slots={{ toolbar: GridToolbar }}
             />
         </div>
 );

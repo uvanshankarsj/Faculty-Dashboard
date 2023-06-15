@@ -83,7 +83,7 @@ return (
                 <Link to='/registration' style={{textDecoration:"none"}}>
                 <li>
                     <AppRegistrationIcon className='icon'/>
-                    <span>Course Registrataion</span>
+                    <span>Course Registration</span>
                 </li> 
                 </Link>
                 <li>
@@ -99,12 +99,14 @@ return (
                 <p className="title">
                     ACCOUNT
                 </p>
+                {admin &&
                 <Link to='/profile' style={{textDecoration:"none"}}>
                 <li>
                     <PersonIcon className='icon'/>
                     <span>Profile</span>
                 </li> 
                 </Link>
+                }
                 <li>
                     <SettingsIcon className='icon'/>
                     <span>Settings</span>

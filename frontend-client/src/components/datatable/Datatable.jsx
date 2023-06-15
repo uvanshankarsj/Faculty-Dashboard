@@ -1,5 +1,5 @@
 import "./datatable.scss";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid,GridToolbar } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -107,6 +107,7 @@ const Datatable = () => {
                 rowsPerPageOptions={[9]}
                 checkboxSelection
                 getRowId={(row) => row.facultyId}
+                slots={{ toolbar: GridToolbar }}
             />
         </div>
     );

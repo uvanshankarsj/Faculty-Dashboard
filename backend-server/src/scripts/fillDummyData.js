@@ -2,7 +2,7 @@ const n_iters = 10;
 
 async function fillDummyData() {
   const { models } = require("../db");
-  const { department,designation,adminDepartment,projectType,projectStatus,courseMode,courseStatus,courseType} = require("../db/constant");
+  const { department,designation,adminDepartment,projectType,projectStatus,courseMode,courseStatus,courseType,section,semester,year} = require("../db/constant");
   const { hashPassword } = require("../utils/utils");
   const facultyData = [];
   const studentData = [];
@@ -11,7 +11,23 @@ async function fillDummyData() {
   const starredeventsData = [];
   const eventsData = [];
   const courseData = [];
+  const assignData = [];
   for (let i = 1; i < n_iters+1; i++) {
+    assignData.push({
+      courseID: i,
+      facultyID: Math.floor(Math.random() * 10) + 1,
+      semester: semester[Math.floor(Math.random() * semester.length)],
+      year: year[Math.floor(Math.random() * year.length)],
+      section: section[Math.floor(Math.random() * section.length)],
+      facultyName: `faculty${i}`,
+      courseName: `course${i}`,
+      department: department[Math.floor(Math.random() * department.length)],
+      courseMode: courseMode[Math.floor(Math.random() * courseMode.length)],
+      courseType: courseType[Math.floor(Math.random() * courseType.length)],
+      courseStatus: courseStatus[Math.floor(Math.random() * courseStatus.length)],
+    });
+
+
     courseData.push({
       courseName: `course${i}`,
       courseCode: `course${i}`,
@@ -88,6 +104,7 @@ async function fillDummyData() {
     await models.events.bulkCreate(eventsData);
     await models.starredevents.bulkCreate(starredeventsData);
     await models.course.bulkCreate(courseData);
+    await models.assign.bulkCreate(assignData);
   } catch (err) {
     console.log(err);
   }

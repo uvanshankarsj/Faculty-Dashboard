@@ -58,5 +58,4 @@ try:
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/div/div/div[2]/form/div[11]/button'))).click()
     sleep(2)
 finally:
-
     print('Automated Faculty Test Completed')

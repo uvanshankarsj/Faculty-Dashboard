@@ -34,7 +34,7 @@ export default function ReactBigCalendar() {
             setEventsData([...eventsData, { start, end, title }]);
             const event = {
                 name: title,
-                date : date,
+                date : fdate,
                 facultyId: fac,
                 startTime: startTime,
                 endTime: endTime,

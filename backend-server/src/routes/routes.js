@@ -8,8 +8,10 @@ const { sendEmail } = require('../controllers/emailControllers');
 const { getAllEvents, getEventById, createEvent, updateEvent, deleteEvent,getEventsByFacultyId,getstarredEventsByFacultyId,getEventsByFacultyEmail} = require('../controllers/eventControllers');
 const {uploadpaper,uploadMultiplepapers,deleteFile,getFile,getAllFiles,uploadMultipletimetables,uploadtimetable,getAllTimetables,getTimetable,deleteTimetable}= require('../controllers/fileControllers');
 const { getAllCourses, getCourseById, createCourse,updateCourse,deleteCourse,getCourseByDepartment,getCourseByMode,getCourseByType,getCourseByStatus} = require('../controllers/courseControllers');
-// Student Routes
+const  {getAllAssigns, getAssignedByFacultyId,getAssignedByCourseId,createAssign,updateAssign,deleteAssignByCourseId,deleteAssignByFacultyId} = require('../controllers/assignControllers')
 
+
+// Student Routes
 router.get('/api/students',getAllStudents)
 router.get('/api/students/:id',getStudentById)
 router.get('/api/students/email/:email',getStudentByEmail)
@@ -93,5 +95,13 @@ router.delete('/api/delete/:filename',deleteFile)
 router.get('/api/download/:filename',getFile)
 router.get('/api/files',getAllFiles)
 
+// Assign Routes
+router.get('/api/assigns',getAllAssigns)
+router.get('/api/assigns/faculty/:id',getAssignedByFacultyId)
+router.get('/api/assigns/course/:id',getAssignedByCourseId)
+router.post('/api/assigns',createAssign)
+router.put('/api/assigns/:id',updateAssign)
+router.delete('/api/assigns/faculty/:id',deleteAssignByFacultyId)
+router.delete('/api/assigns/course/:id',deleteAssignByCourseId)
 
 module.exports = router;

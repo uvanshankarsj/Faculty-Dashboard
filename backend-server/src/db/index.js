@@ -25,6 +25,7 @@ const modelDefiners = [
   require("./models/events.model"),
   require("./models/starredevents.model"),
   require("./models/course.model"),
+  require("./models/assign.model"),
 ];
 
 // We define all models according to their files.
