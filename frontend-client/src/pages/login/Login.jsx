@@ -28,6 +28,7 @@ const login = (email, password) => {
             setError('')
             window.localStorage.setItem("token", res.data.token);
             window.localStorage.setItem("user", JSON.stringify(res.data.user));
+            window.localStorage.setItem("usertype", res.data.userType);
             window.localStorage.setItem("email", email);
             move('/home', { state: { "message": "Login successful" }}) 
         }

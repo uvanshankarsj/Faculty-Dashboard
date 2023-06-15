@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,useEffect,useState} from 'react'
 import './sidebar.scss'
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
@@ -18,6 +18,13 @@ const Sidebar = () => {
         localStorage.clear()
         window.location.href = '/'
     }
+    const [admin,isAdmin] = useState(true)
+    useEffect(() => {
+        if(localStorage.getItem('usertype') === 'admin'){
+            isAdmin(false)
+        }
+    }, [])
+
 return (
     <div className="sidebar">
         <div className="top">
@@ -65,12 +72,14 @@ return (
                 <p className="title">
                     TOOLS
                 </p>
+                {admin && 
                 <Link to='/calendar' style={{textDecoration:"none"}}>
                 <li>
                     <EventNoteIcon className='icon'/>
                     <span>Work Log</span>
                 </li> 
                 </Link>
+                }  
                 <Link to='/registration' style={{textDecoration:"none"}}>
                 <li>
                     <AppRegistrationIcon className='icon'/>

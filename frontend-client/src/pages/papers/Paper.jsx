@@ -1,4 +1,3 @@
-
 import './paper.scss'
 import Sidebar from '../../components/sidebar/Sidebar'
 import Navbar from '../../components/navbar/Navbar'
@@ -6,7 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { React,useState,useEffect} from "react";
-
 
 const Paper = () => {
     const [fileList, setFileList] = useState();
