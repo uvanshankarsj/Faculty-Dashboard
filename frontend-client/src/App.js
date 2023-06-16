@@ -15,6 +15,7 @@ import Timetable from './pages/timetable/Timetable'
 import Registration from './pages/registration/Registration'
 import Profile from './pages/profile/Profile'
 import CourseNew from './pages/coursenew/CourseNew'
+import Editprofile from './components/editprofile/Editprofile'
 
 const App = () => {
     return (
@@ -34,6 +35,7 @@ const App = () => {
                     <Route path='timetable' element={<Timetable/>}/>
                     <Route path='registration' element={<Registration/>}/>
                     <Route path='profile' element={<Profile/>}/>
+                    <Route path='editprofile' element={<Editprofile/>}/>
                     <Route path='faculties'>
                         <Route index element={<List/>}/>
                         <Route path=':facultyId' element={<Single/>}/>

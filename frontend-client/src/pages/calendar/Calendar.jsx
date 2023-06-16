@@ -14,13 +14,14 @@ export default function ReactBigCalendar() {
     const [eventsData, setEventsData] = useState([])
     const [fac, setFac] = useState()
     const emailId = localStorage.getItem("email")
+
     useEffect(() => {
         axios.get(`http://localhost:6969/api/events/faculty/email/${emailId}`).then((res) => {
             console.log(res.data)
             setEventsData(res.data.events)
             setFac(res.data.facultyId)
         })
-    }, [])
+    }, [emailId])
     const handleSelect = async ({ start, end , date }) =>{
         const title = window.prompt("New Event name");
         console.log(start,end,date)

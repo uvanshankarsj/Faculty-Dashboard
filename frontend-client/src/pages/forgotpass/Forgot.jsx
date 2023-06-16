@@ -76,6 +76,7 @@ const Forgot = () => {
     }
 
     const otpverification = () => {
+        // eslint-disable-next-line
         if(otp == verfiyotp){
             resetnavigate('/reset', {state:{token:localStorage.getItem('token'),message:"Verified", email:email}})
         }

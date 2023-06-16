@@ -1,5 +1,5 @@
 const {models} = require('../db')
-const bcrypt = require("bcrypt");
+const {hashPassword} = require('../utils/utils')
 
 
 const getAllFaculties = async (req, res) => {
@@ -128,19 +128,14 @@ const createFaculty = async (req, res) => {
 
 const updateFaculty = async (req, res) => {
     const facultyId = req.params.id
-    const {name, email, password, department, designation, phoneNumber,papers,publications,citations,projects} = req.body
+    const {name, email,department, designation, phoneNumber} = req.body
     try{
         const faculty = await models.faculty.update({
         name: name,
         email: email,
-        password: password,
         department: department,
         designation: designation,
         phoneNumber: phoneNumber,
-        papers: papers,
-        publications: publications,
-        citations: citations,
-        projects: projects
     },{
         where:{
             facultyId: facultyId
