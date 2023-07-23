@@ -26,22 +26,25 @@
    3. `npm start` 
 
 ---
-#### 3 - Features
-1. This App is a rudimentary version of a bigger aspiration to build an intuitive Music analytics and recommendation app
-2. You can select Track , Album or Artist to Perform Custom Searches
-3. Currentlty the features of the app are limited
-  1. Top Songs and Albums of Artists
-  2. Song Features cum Analysis and Recommendation based on selected track
-  3. Songs in the Albums with Previews
-4.  ***New Features Coming Soon......***
+#### 3 - Information and Features 
+1. This Application is a project work done for the Software Engineering Course
+2. This is a medium-level web app which provides a faculty dashboard to 2 types of users ( Admin and Faculty )
+3. Faculty can updates classes , work-log and view all the necessary scholastic information
+4. Admin can perform CRUD operation on faculties and scholastic information
+5. This software applications has undergone multiple testing techniques
+   1. React-Tests
+   2. Jest
+   3. API-Testing
+   4. Performance Testing on Sentry
+   5. SonarQube
+   6. UI Testing done with Selenium 
 ---
 #### 4 - Updates 
 
-> 1 . Profile Information and Recommendation based on Listening Activity
+> 1 . Profile Information Updation and Major UI Improvements
 <br/>
 
-
-> 2 . Custom Built Recommendation System using Hybrid Deep Learning methods of Content-Based Extraction and Collaborative Filtering
+> 2 . Course Recommendation and Faculty Sentiment Analysis Modules to be integrated
 
 ---
 #### Stay Tuned for Updates 
