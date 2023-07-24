@@ -1,16 +1,16 @@
-### Faculty Dashboard
+## Faculty Dashboard
 ---
 #### This is a Faculty Dashboard built on the MERN Stack ( MySQL + Expressjs + ReactJS + Nodejs) using Sequelize ORM 
 
 ---
-#### 1 - Requirements 
+### 1 - Requirements 
 1. Nodejs
 2. MySQL Server
 2. Git
 4. Any interface to view Databases ( Beekeper Studio )
 5. Postman
 ---
-#### 2 - Usage 
+### 2 - Usage 
 1. First clone or download the project from GitHub
 2. Open Terminal in the project folder and run
    1. `cd backend-server`
@@ -26,7 +26,7 @@
    3. `npm start` 
 
 ---
-#### 3 - Information and Features 
+### 3 - Information and Features 
 1. This Application is a project work done for the Software Engineering Course
 2. This is a medium-level web app which provides a faculty dashboard to 2 types of users ( Admin and Faculty )
 3. Faculty can updates classes , work-log and view all the necessary scholastic information
@@ -39,7 +39,7 @@
    5. SonarQube
    6. UI Testing done with Selenium 
 ---
-#### 4 - Updates 
+### 4 - Updates 
 
 > 1 . Profile Information Updation and Major UI Improvements
 <br/>
@@ -47,7 +47,7 @@
 > 2 . Course Recommendation and Faculty Sentiment Analysis Modules to be integrated
 
 ---
-#### Stay Tuned for Updates 
+### Stay Tuned for Updates 
 ```
 Built with Care By
 PD
