@@ -54,3 +54,22 @@ Built with Care By
 UVAN shankar SJ
 ```
 ---
+
+### Output:
+![Alt text](https://github.com/uvanshankarsj/Faculty-Dashboard/blob/master/images/WhatsApp%20Image%202023-09-29%20at%203.13.27%20AM.jpeg)
+
+![Alt text](https://github.com/uvanshankarsj/Faculty-Dashboard/blob/master/images/WhatsApp%20Image%202023-09-29%20at%203.14.28%20AM.jpeg)
+
+![Alt text](https://github.com/uvanshankarsj/Faculty-Dashboard/blob/master/images/WhatsApp%20Image%202023-09-29%20at%203.15.19%20AM.jpeg)
+
+![Alt text](https://github.com/uvanshankarsj/Faculty-Dashboard/blob/master/images/WhatsApp%20Image%202023-09-29%20at%203.16.06%20AM.jpeg)
+
+![Alt text](https://github.com/uvanshankarsj/Faculty-Dashboard/blob/master/images/WhatsApp%20Image%202023-09-29%20at%203.16.30%20AM.jpeg)
+
+![Alt text](https://github.com/uvanshankarsj/Faculty-Dashboard/blob/master/images/WhatsApp%20Image%202023-09-29%20at%203.16.30%20AM.jpeg)
+
+![Alt text](https://github.com/uvanshankarsj/Faculty-Dashboard/blob/master/images/WhatsApp%20Image%202023-09-29%20at%203.17.27%20AM.jpeg)
+
+![Alt text](https://github.com/uvanshankarsj/Faculty-Dashboard/blob/master/images/WhatsApp%20Image%202023-09-29%20at%203.18.25%20AM.jpeg)
+
+![Alt text](https://github.com/uvanshankarsj/Faculty-Dashboard/blob/master/images/WhatsApp%20Image%202023-09-29%20at%203.19.06%20AM.jpeg)
